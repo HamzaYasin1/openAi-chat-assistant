@@ -1,6 +1,4 @@
-# openAi-chat-assistant
-
-# OpenAI Assistant Project
+# OpenAI Chat Assistant
 
 This repository contains a React frontend and a Node.js backend for an OpenAI-powered chat assistant.
 
@@ -16,34 +14,42 @@ This repository contains a React frontend and a Node.js backend for an OpenAI-po
 
 1. Navigate to the `openAi-assistant-frontend` directory.
 
-```bash
-cd openAi-assistant-frontend
+    ```bash
+    cd openAi-assistant-frontend
+    ```
 
-1.1. Install dependencies
+    1.1. Install dependencies
 
-```bash
-npm install
+    ```bash
+    npm install
+    ```
 
-1.2. Start the React app.
+    1.2. Start the React app.
 
-```bash
-npm start
+    ```bash
+    npm start
+    ```
 
-The app will be accessible at http://localhost:3000.
+    The app will be accessible at [http://localhost:3000](http://localhost:3000).
+
+### Backend (Node.js)
 
 2. Navigate to the `openAi-assistant-nodejs` directory.
 
-```bash
-cd openAi-assistant-nodejs
+    ```bash
+    cd openAi-assistant-nodejs
+    ```
 
-2.1. Install dependencies
+    2.1. Install dependencies
 
-```bash
-npm install
+    ```bash
+    npm install
+    ```
 
-2.2. Start the Node.js server.
+    2.2. Start the Node.js server.
 
-```bash
-npm start
+    ```bash
+    npm start
+    ```
 
-The server will be accessible at http://localhost:3001.
+    The server will be accessible at [http://localhost:3001](http://localhost:3001).
