@@ -1,1 +1,1 @@
-export const BASE_URL='http://localhost:3001/ask-question'
+export const BASE_URL='http://localhost:3001'

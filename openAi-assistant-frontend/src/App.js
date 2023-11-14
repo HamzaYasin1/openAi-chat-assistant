@@ -1,11 +1,18 @@
 import React from 'react';
-import ChatAssistant from './ChatAssistant';
-import './App.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Chat from './chat'; 
+import Admin from './admin'; 
+import './App.css'
+
 const App = () => {
   return (
-    <div className="app">
-      <h1>Chat Assistant App</h1>
-      <ChatAssistant />
+    <div className='App'>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Chat />}></Route>
+          <Route path='/admin' element={<Admin />}></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 };
