@@ -1,19 +1,27 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios"
 import { BASE_URL } from "./config";
 const ChatAssistant = () => {
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState([]);
   const [isLoading, setLoading] = useState(false);
   const [previousChats, setPreviousChats] = useState([]);
-
+  const [ip, setIpAddress] = useState(null);
   const handleInputChange = (e) => {
     setInput(e.target.value);
   };
-
+  useEffect(() => {
+    let getIp = async () => {
+      const res = await axios.get("https://api.ipify.org/?format=json");
+      console.log("res", res.data.ip)
+      setIpAddress(res.data.ip)
+    }
+    getIp()
+  })
   const handleSendMessage = async () => {
     try {
       if (!input) return;
-
+      if (ip === null) alert("We are facing some issue to send message")
       setLoading(true);
       // Make a POST request to the API (replace 'YOUR_API_ENDPOINT' with the actual endpoint)
       const response = await fetch(`${BASE_URL}/ask-question`, {
@@ -21,15 +29,14 @@ const ChatAssistant = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ question: input }),
+        body: JSON.stringify({ question: input, userIP: ip }),
       });
-
       if (response.ok) {
         const data = await response.json();
         console.log(data);
         const newMessages = [
           ...messages,
-          { type: "user", content: input,  },
+          { type: "user", content: input, },
           { type: "assistant", content: data.response },
         ];
         setMessages(newMessages);
@@ -45,7 +52,7 @@ const ChatAssistant = () => {
   };
   const fetchPreviousChats = async () => {
     try {
-      const response = await fetch(`${BASE_URL}/chats/`);
+      const response = await fetch(`${BASE_URL}/chats/${ip}`);
       if (response.ok) {
         const data = await response.json();
         const formattedChats = data.conversations.reduce((accumulator, chat) => {
@@ -55,7 +62,6 @@ const ChatAssistant = () => {
           );
           return accumulator;
         }, []);
-  
         // Set the formatted chats in the state
         setPreviousChats(formattedChats);
       }
@@ -63,17 +69,16 @@ const ChatAssistant = () => {
       console.error('Error fetching previous chats:', error.message);
     }
   };
-
   useEffect(() => {
-    fetchPreviousChats();
-  }, []);
-
+    if(ip!==null){
+      fetchPreviousChats();
+    }
+  }, [ip]);
   // console.log(previousChats);
-
   return (
     <div className="chat-container">
       <div className="chat-messages">
-      {previousChats.map((chat, index) => (
+        {previousChats.map((chat, index) => (
           <div key={index} className={`message ${chat.type}`}>
             {chat.content}
           </div>
@@ -98,5 +103,4 @@ const ChatAssistant = () => {
     </div>
   );
 };
-
 export default ChatAssistant;
