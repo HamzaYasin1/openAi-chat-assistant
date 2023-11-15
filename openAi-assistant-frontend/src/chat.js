@@ -1,5 +1,7 @@
 import React from "react";
 import ChatAssistant from "./ChatAssistant";
+import './index.css'; // Replace with the path to your actual CSS file
+
 
 const Chat = () => {
   return (
