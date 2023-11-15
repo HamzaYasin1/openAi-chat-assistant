@@ -5,7 +5,7 @@ import ChatAssistant from './ChatAssistant';
 const Chat = () => {
   return (
     <div className="chat">
-      <h1>Chat Assistant App</h1>
+      <h1>Rollover Helper</h1>
       <ChatAssistant />
     </div>
   );
