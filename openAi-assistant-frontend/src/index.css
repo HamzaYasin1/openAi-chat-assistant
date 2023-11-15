@@ -43,3 +43,7 @@ h1.headline {
 
 /* ... rest of your styles */
 
+#topper {
+  background-color: #ffffff !important; /* White background for the logo section */
+  
+}

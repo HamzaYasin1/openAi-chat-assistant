@@ -4,7 +4,7 @@ import ChatAssistant from "./ChatAssistant";
 const Chat = () => {
   return (
     <>
-    <div className="logo-section">
+    <div className="logo-section" id="topper">
         <div className="container logo-container">
           <img className="logo" src="logo.png" alt="logo" />
         </div>
