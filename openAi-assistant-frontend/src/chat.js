@@ -7,7 +7,7 @@ const Chat = () => {
     <div className="top-bar">
         <div className="container">
           <img className="logo" src="logo.png" alt="logo" />
-          <h1 className="title">
+          <h1 className="title" id="headline">
             This A.I. Powered Bot Can Answer Any 401k/IRA/TSP Rollover Questions You Have
           </h1>
         </div>

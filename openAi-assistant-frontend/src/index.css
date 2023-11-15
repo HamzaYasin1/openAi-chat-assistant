@@ -13,7 +13,7 @@ code {
 }
 
 .top-bar {
-  background-color: #f8f9fa; /* You can change this color to whatever you want */
+  background-color: #ffffff; /* You can change this color to whatever you want */
   padding: 1rem 0; /* Add some padding */
 }
 
@@ -36,6 +36,8 @@ code {
   text-align: center;
   flex-grow: 1;
 }
-
+#headline {
+  text-align: center;
+}
 /* Add your existing styles below */
 /* ... */
