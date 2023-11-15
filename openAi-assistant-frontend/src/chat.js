@@ -4,15 +4,19 @@ import ChatAssistant from "./ChatAssistant";
 const Chat = () => {
   return (
     <>
-    <div className="top-bar">
-        <div className="container">
+    <div className="logo-section">
+        <div className="container logo-container">
           <img className="logo" src="logo.png" alt="logo" />
-          <h1 className="title" id="headline">
+        </div>
+      </div>
+      <div className="headline-section">
+        <div className="container headline-container">
+          <h1 className="headline">
             This A.I. Powered Bot Can Answer Any 401k/IRA/TSP Rollover Questions You Have
           </h1>
         </div>
       </div>
-      <div className="container">
+      <div className="container chat-container">
         <div className="chat">
           <h1>Rollover Helper</h1>
           <ChatAssistant />
