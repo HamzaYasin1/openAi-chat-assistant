@@ -11,40 +11,35 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.logo-section {
-  background-color: #ffffff; /* White background for the logo section */
+/* Ensure the specificity is high enough to override other styles */
+div.logo-section {
+  background-color: #ffffff !important; /* White background for the logo section */
   padding: 1rem 0;
 }
 
-.logo-container {
+div.logo-container {
   text-align: center; /* Center the logo image within the container */
 }
 
-.logo {
+img.logo {
   /* Adjust the width as needed */
   width: 120px; /* Example width */
 }
 
-.headline-section {
+div.headline-section {
   background-color: #f8f9fa; /* Background color for the headline section */
   padding: 1rem 0;
 }
 
-.headline-container {
+div.headline-container {
   text-align: center; /* Center the headline text within the container */
 }
 
-.headline {
+h1.headline {
   font-size: 34px;
   font-weight: 600;
   margin: 0; /* Remove default margins to better control spacing */
 }
 
-/* Chat container to align with the rest of the content */
-.chat-container {
-  padding: 1rem 0;
-}
-
-/* Continue with the rest of your styles */
-/* ... */
+/* ... rest of your styles */
 
