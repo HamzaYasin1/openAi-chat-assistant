@@ -11,3 +11,31 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.top-bar {
+  background-color: #f8f9fa; /* You can change this color to whatever you want */
+  padding: 1rem 0; /* Add some padding */
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto; /* Center the container */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  /* Reset any specific padding-top (pt-3) or padding-bottom (pb-2) if needed */
+  width: 100px; /* Adjust the width as needed */
+}
+
+.title {
+  font-size: 34px;
+  font-weight: 600;
+  text-align: center;
+  flex-grow: 1;
+}
+
+/* Add your existing styles below */
+/* ... */
