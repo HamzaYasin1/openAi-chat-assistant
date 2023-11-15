@@ -1,5 +1,5 @@
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   background-color: #f0f0f0;
   margin: 0;
   padding: 0;
@@ -17,18 +17,22 @@ body {
 .chat-container {
   display: flex;
   flex-direction: column;
+  /* overflow-y: scroll; */
 }
 
 .chat-messages {
+  max-height: 800px;
+  /* padding-top: 50px; */
   padding: 10px;
   display: flex;
   max-width: 1400px;
-    /* flex: 1 1; */
-    overflow-y: auto;
-    padding: 10px;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  flex: 1 1;
+  /* overflow-y: auto; */
+  padding: 10px;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  overflow: scroll;
 }
 
 .message {
@@ -74,7 +78,7 @@ button {
   border-radius: 4px;
 }
 
-.admin-container{
+.admin-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -169,7 +173,7 @@ button {
 .input-container button:hover {
   background-color: #45a049;
 }
-.clear-btn{
+.clear-btn {
   background-color: #007bff;
   margin-top: 2rem;
 }
@@ -178,7 +182,7 @@ button {
   display: inline-block;
   width: 14px;
   height: 14px;
-  border: 3px solid rgba(255,255,255,.3);
+  border: 3px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
   border-top-color: #fff;
   animation: spin 1s ease-in-out infinite;
@@ -186,21 +190,52 @@ button {
 }
 
 @keyframes spin {
-  to { -webkit-transform: rotate(360deg); }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
 }
 @-webkit-keyframes spin {
-  to { -webkit-transform: rotate(360deg); }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
 }
 
 @media screen and (max-width: 480px) {
-
   .admin-container {
     flex-direction: column;
-   align-items: center;
+    align-items: center;
+  }
+  .sidebar {
+    position: inherit;
+
+    width: 80vw;
+  }
+  .logo {
+    width: 100%;
+  }
+  .chat-input {
+    width: 100%;
+    gap: 20px;
+    flex-direction: column;
+    padding: 0;
+  }
+  .chat-input button,
+  .chat-input input{
+    width: 100%;
+    margin: 0;
+  }
 }
-.sidebar {
-  position: inherit;
- 
-  width: 80vw;
+.how-work {
+  background-color: white;
+  padding: 30px 0px;
 }
+.how-work h1 {
+  font-size: 38px;
+  font-weight: 600;
+  padding: 10px 0px;
+  text-align: center;
+}
+.how-work p {
+  font-size: 22px;
+  color: rgb(131, 130, 130);
 }
