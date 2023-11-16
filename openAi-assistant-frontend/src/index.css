@@ -18,12 +18,14 @@ div.logo-section {
 }
 
 div.logo-container {
-  text-align: center; /* Center the logo image within the container */
+  width: 80%;
+  margin: 0 auto; /* Center the container */
+  display: flex;
+  justify-content: center; /* Center children horizontally */
 }
 
 img.logo {
   /* Adjust the width as needed */
-  width: 120px; /* Example width */
 }
 
 div.headline-section {
@@ -38,7 +40,10 @@ div.headline-container {
 h1.headline {
   font-size: 34px;
   font-weight: 600;
-  margin: 0; /* Remove default margins to better control spacing */
+  text-align: center;
+  margin: 0 auto; /* Center the headline text */
+  width: fit-content; /* Fit the width to the content */
+  padding: 0 20px; /* Add some horizontal padding */
 }
 
 /* ... rest of your styles */
