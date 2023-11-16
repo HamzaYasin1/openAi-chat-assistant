@@ -14,7 +14,7 @@ const Chat = () => {
       <div className="headline-section">
         <div className="container headline-container">
           <h1 className="headline">
-            This A.I. Powered Bot Can Answer Any 401k/IRA/TSP Rollover Questions You Have
+            We Built An A.I. Powered Bot Can Answer Any 401k/IRA/TSP Rollover Questions You Have
           </h1>
         </div>
       </div>
@@ -34,6 +34,7 @@ const Chat = () => {
             rolling over an old retirement account. It's powerful and more
             importantly -<b style={{ color: "black" }}>Its Works.</b>{" "}
           </p>
+          <hr />
           <h1>As Seen On</h1>
           <div className="row">
             <div className="col-lg-3  col-md-6  text-center">
@@ -49,8 +50,9 @@ const Chat = () => {
               <img className="pt-3 pb-2 text-center"  width={270} src="logo.png" alt="logo" />
             </div>
           </div>
+          <hr />
           <p className="pt-5 pb-3 text-center">
-           <b style={{color:"black"}}>IMPORTANT NOTICE:</b>  Trading Stock, Stock Options, Cryptocurrencies,
+           <b id="footer">IMPORTANT NOTICE:</b>  Trading Stock, Stock Options, Cryptocurrencies,
             and their derivatives involves a substantial degree of risk and may
             not be suitable for all investors. Currently, cryptocurrencies are
             not specifically regulated by any agency of the U.S. government.
