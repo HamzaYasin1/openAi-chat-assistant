@@ -52,7 +52,7 @@ h1.headline {
   background-color: #ffffff !important; /* White background for the logo section */
   
 }
-#footer {
+.footer {
   font-size: 14px;
   color: black;
 }

@@ -33,7 +33,7 @@ const Chat = () => {
             old 401ks, TSPs, IRAs, etc and trained an artificial intelligence
             powered chatbot to answer any and all questions you might have about
             rolling over an old retirement account. It's powerful and more
-            importantly -<b style={{ color: "black" }}>Its Works.</b>{" "}
+            importantly -<b style={{ color: "black" }}>It Works!</b>{" "}
           </p>
           </div>
           <h1>As Seen On</h1>
@@ -52,8 +52,8 @@ const Chat = () => {
             </div>
           </div>
           <hr />
-          <p className="pt-5 pb-3 text-center">
-           <b id="footer">IMPORTANT NOTICE:</b>  Trading Stock, Stock Options, Cryptocurrencies,
+          <p className="pt-5 pb-3 text-center footer">
+           <b>IMPORTANT NOTICE:</b>  Trading Stock, Stock Options, Cryptocurrencies,
             and their derivatives involves a substantial degree of risk and may
             not be suitable for all investors. Currently, cryptocurrencies are
             not specifically regulated by any agency of the U.S. government.
