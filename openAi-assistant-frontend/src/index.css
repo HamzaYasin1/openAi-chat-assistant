@@ -11,3 +11,51 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+/* Ensure the specificity is high enough to override other styles */
+div.logo-section {
+  background-color: #ffffff !important; /* White background for the logo section */
+  padding: 1rem 0;
+}
+
+div.logo-container {
+  width: 80%;
+  margin: 0 auto; /* Center the container */
+  display: flex;
+  justify-content: center; /* Center children horizontally */
+}
+
+img.logo {
+  /* Adjust the width as needed */
+}
+
+div.headline-section {
+  background-color: #f8f9fa; /* Background color for the headline section */
+  padding: 1rem 0;
+}
+
+div.headline-container {
+  text-align: center; /* Center the headline text within the container */
+}
+
+h1.headline {
+  font-size: 34px;
+  font-weight: 600;
+  text-align: center;
+  margin: 0 auto; /* Center the headline text */
+  width: fit-content; /* Fit the width to the content */
+  padding: 0 20px; /* Add some horizontal padding */
+}
+
+/* ... rest of your styles */
+
+#topper {
+  background-color: #ffffff !important; /* White background for the logo section */
+  
+}
+.footer {
+  font-size: 14px;
+  color: black;
+}
+.how-work {
+  background-color: #f8f9fa;
+}
