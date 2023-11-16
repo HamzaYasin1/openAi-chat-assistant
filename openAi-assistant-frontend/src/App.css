@@ -3,11 +3,17 @@ body {
   background-color: #f0f0f0;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
+}
+
+.logo{
+  width: auto;
+  height: 5.5rem;
 }
 
 .app,
 .chat {
-  max-width: 600px;
+  max-width: 1100px;
   margin: 50px auto;
   background-color: #fff;
   padding: 20px;
@@ -18,6 +24,7 @@ body {
   display: flex;
   flex-direction: column;
   /* overflow-y: scroll; */
+  width: inherit;
 }
 
 .chat-messages {
@@ -189,6 +196,7 @@ button {
   -webkit-animation: spin 1s ease-in-out infinite;
 }
 
+
 @keyframes spin {
   to {
     -webkit-transform: rotate(360deg);
@@ -200,7 +208,80 @@ button {
   }
 }
 
+
+.how-work {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background-color: white; */
+  /* padding: 30px 0px; */
+  width: 100% !important;
+}
+.how-main,
+.seen-main,
+.notice-main,
+.privacy-main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 20px;
+  /* margin-top: 1rem; */
+}
+.notice-main{
+  background-color: #343434;
+}
+.logo-con{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 20px;
+}
+.privacy-main{
+  background-color: #000;
+}
+
+.main-con{
+  width: 100vw !important;
+  /* margin: 0; */
+}
+.how-work h1 {
+  font-size: 38px;
+  font-weight: 600;
+  padding: 10px 0px;
+  text-align: center;
+}
+.how-work p {
+  font-size: 22px;
+  color: rgb(131, 130, 130);
+  text-align: center;
+  max-width: 1200px;
+}
+.notice-main>p{
+  color: #d8d8d8;
+
+}
+@media screen and (max-width: 1124px) {
+  .logo{
+    height: 4rem;
+  }
+  .main-text{
+    font-size: 26px !important;
+  }
+  .how-work h1 {
+    font-size: 30px;
+  }
+  .how-work p {
+    font-size: 16px;
+  }
+}
 @media screen and (max-width: 480px) {
+  .main-text{
+    font-size: 25px !important;
+  }
   .admin-container {
     flex-direction: column;
     align-items: center;
@@ -211,7 +292,7 @@ button {
     width: 80vw;
   }
   .logo {
-    width: 100%;
+    height: 3rem;
   }
   .chat-input {
     width: 100%;
@@ -224,18 +305,10 @@ button {
     width: 100%;
     margin: 0;
   }
-}
-.how-work {
-  background-color: white;
-  padding: 30px 0px;
-}
-.how-work h1 {
-  font-size: 38px;
-  font-weight: 600;
-  padding: 10px 0px;
-  text-align: center;
-}
-.how-work p {
-  font-size: 22px;
-  color: rgb(131, 130, 130);
+  .how-work h1 {
+    font-size: 25px;
+  }
+  .how-work p {
+    font-size: 14px;
+  }
 }
