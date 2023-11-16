@@ -25,6 +25,7 @@ const Chat = () => {
         </div>
       </div>
       <div className="how-work">
+        <div className="hiw">
         <div className="container">
           <h1>How It Works</h1>
           <p className="">
@@ -34,7 +35,7 @@ const Chat = () => {
             rolling over an old retirement account. It's powerful and more
             importantly -<b style={{ color: "black" }}>Its Works.</b>{" "}
           </p>
-          <hr />
+          </div>
           <h1>As Seen On</h1>
           <div className="row">
             <div className="col-lg-3  col-md-6  text-center">
