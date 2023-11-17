@@ -95,7 +95,7 @@ const ChatAssistant = () => {
     }
   }, [ip]);
   useEffect(() => {
-    if (previousChats == null || previousChats == []) {
+    if (previousChats == null || previousChats === 0) {
       const newMessage = [
         { type: "assistant", content: 'Hi! My name is Rollover Helper. What 401k rollover questions can I help you with?' },
       ];
