@@ -14,7 +14,7 @@ const Chat = () => {
           </div>
         </div>
         <p
-          className="pt-3 text-center main-text"
+          className="pt-3 text-center main-text main-p"
           style={{
             fontSize: "24px",
             fontWeight: "500",
@@ -119,7 +119,7 @@ const Chat = () => {
             </span>{" "}
             <img className="pt-3 pb-2 logos" src="as-seen-logos.png" alt="logo" />
           </div>
-          <div
+          {/* <div
             className="how-main"
             style={{ background: "#fff", width: "100%" }}
           >
@@ -169,7 +169,7 @@ const Chat = () => {
                 />
               </div>
             </div>
-          </div>
+          </div> */}
           <div className="notice-main">
             <p style={{ textAlign: "center" }}>
               <strong>

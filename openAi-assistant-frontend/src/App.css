@@ -1,6 +1,10 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Poppins:wght@400;500;600;700&family=Public+Sans:wght@400;500;600;700&family=Roboto:wght@400;700&family=Work+Sans:wght@300;400;500;600;700&display=swap');
+
+
 body {
-  font-family: "Arial", sans-serif;
   background-color: #F8F8F8;
+  font-family: 'Montserrat', sans-serif;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -336,6 +340,7 @@ button {
   letter-spacing: 1px;
   font-weight: 500;
   font-style: normal;
+  max-width: 50%;
 }
 @media screen and (max-width: 1124px) {
   .logo{
@@ -364,6 +369,7 @@ button {
   }
   .exp span{
     font-size: 17px;
+    max-width: 70%;
   }
 }
 @media screen and (max-width:520px) {
@@ -377,6 +383,9 @@ button {
   }
   .main-text{
     font-size: 25px !important;
+  }
+  .main-p{
+    font-size: 18px !important;
   }
   .exp{
     flex-direction: column;
@@ -395,7 +404,8 @@ button {
   }
   .exp span{
     text-align: center;
-    font-size: 12px;
+    font-size: 14px;
+    max-width: 100%;
   }
   .chat-input {
     width: 100%;
@@ -404,7 +414,7 @@ button {
     padding: 0;
   }
   .as-seen img{
-    height: 1rem;
+    height: 1.4rem;
   }
   .chat-input button,
   .chat-input input{
@@ -412,7 +422,7 @@ button {
     margin: 0;
   }
   .mockup{
-    max-width: 10rem;
+    max-width: 15rem;
   }
   .how-work h1 {
     font-size: 25px;
@@ -424,10 +434,14 @@ button {
     height: 3rem;
   }
   .max-main,
-  .roll-main{
+  .roll-main,
+  .how-work p{
     text-align: center;
   }
   .main-text{
+    font-size: 12px;
+  }
+  .notice-main p{
     font-size: 12px;
   }
 }
