@@ -133,7 +133,7 @@ const Chat = () => {
               <b style={{ color: "black" }}>Its Works.</b>{" "}
             </p>
           </div>
-          <div style={{ marginBottom: "1rem", width: "inherit" }}>
+          <div style={{ marginBottom: "1rem", width: "inherit" }} id="asa">
             <h1>As Seen On</h1>
             <div className="logo-con ">
               <div className="col-lg-3  col-md-6  text-center as-logo">

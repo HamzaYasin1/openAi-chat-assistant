@@ -59,3 +59,9 @@ h1.headline {
 .how-work {
   background-color: #f8f9fa;
 }
+.how-main {
+  display: none;
+}
+#asa {
+  display: none;
+}
