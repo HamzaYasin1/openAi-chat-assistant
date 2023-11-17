@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { BASE_URL } from "./config";
 
@@ -8,8 +8,41 @@ const ChatAssistant = () => {
   const [isLoading, setLoading] = useState(false);
   const [previousChats, setPreviousChats] = useState([]);
   const [ip, setIpAddress] = useState(null);
+  const chatMessagesRef = useRef(null);
 
-  const handleInputChange = (e) => {
+  useEffect(() => {
+    // Check if the chat has started by looking for a flag in localStorage
+    const chatStarted = localStorage.getItem("chatStarted");
+
+    if (!chatStarted) {
+      // If the chat has not started, show the welcome message
+      setMessages([
+        {
+          type: "assistant",
+          content:
+            'Hi! My name is Rollover Helper. What 401k rollover questions can I help you with?',
+        },
+      ]);
+
+      // Set the flag in localStorage to indicate that the chat has started
+      localStorage.setItem("chatStarted", "true");
+    }
+  }, []);
+useEffect(() => {
+    // Function to retrieve the user's IP address
+    const getIp = async () => {
+      try {
+        const response = await axios.get("https://api.ipify.org/?format=json");
+        setIpAddress(response.data.ip);
+      } catch (error) {
+        console.error("Error fetching IP address:", error.message);
+      }
+    };
+ // Call the function to get the IP address
+    getIp();
+  }, []); // Empty dependency array to run this effect only once
+
+const handleInputChange = (e) => {
     setInput(e.target.value);
   };
 
@@ -21,51 +54,60 @@ const ChatAssistant = () => {
   };
 
   const clearPast = () => {
-    setPreviousChats("");
+    setPreviousChats([]);
+    // Remove the flag from localStorage when the user clicks Clear
+    localStorage.removeItem("chatStarted");
   };
 
-  useEffect(() => {
-    let getIp = async () => {
-      const res = await axios.get("https://api.ipify.org/?format=json");
-      console.log("res", res.data.ip);
-      setIpAddress(res.data.ip);
-    };
-    getIp();
-  });
-
-  const handleSendMessage = async () => {
-    try {
-      if (!input) return;
-      if (ip === null) alert("We are facing some issue to send message");
-      setLoading(true);
-      // Make a POST request to the API (replace 'YOUR_API_ENDPOINT' with the actual endpoint)
-      const response = await fetch(`${BASE_URL}/ask-question`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ question: input, userIP: ip }),
-      });
-      if (response.ok) {
-        const data = await response.json();
-        console.log(data);
-        const newMessages = [
-          ...messages,
-          { type: "user", content: input },
-          { type: "assistant", content: data.response },
-        ];
-        setMessages(newMessages);
-        setInput("");
-      }
-      setLoading(false);
-    } catch (e) {
-      if (e.message === "Failed to fetch")
-        alert("Network is not reachable please check connection");
-      else alert(e.message);
-      setLoading(false);
+  const scrollToRecentBotMessage = () => {
+    if (chatMessagesRef.current) {
+      chatMessagesRef.current.scrollTop = chatMessagesRef.current.scrollHeight;
     }
   };
 
+  const handleSendMessage = () => {
+    if (!input) return;
+
+    // Use the functional form of setMessages to update the state
+    setMessages((prevMessages) => [
+      ...prevMessages,
+      { type: "user", content: input },
+      { type: "assistant", content: "Rollover Helper Bot is typing..." }, // Placeholder for bot typing
+    ]);
+    setInput("");
+    setLoading(true);
+    // Make a POST request to the API (replace 'YOUR_API_ENDPOINT' with the actual endpoint)
+    fetch(`${BASE_URL}/ask-question`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ question: input, userIP: ip }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+     // Delay to simulate bot response time (remove this in production)
+        setTimeout(() => {
+   // Update the last message (bot typing) with the actual bot response
+        setMessages((prevMessages) =>
+          prevMessages.map((message, index) =>
+            index === prevMessages.length - 1
+              ? { ...message, type: "assistant", content: data.response }
+              : message
+          )
+        );
+setLoading(false); // Reset isLoading to false here
+          // Scroll to the recent bot message
+          scrollToRecentBotMessage();
+        }, 1000); // Adjust the delay as needed
+      })
+      .catch((e) => {
+        if (e.message === "Failed to fetch")
+          alert("Network is not reachable, please check your connection");
+        else alert(e.message);
+        setLoading(false);
+      });
+  };
   const fetchPreviousChats = async () => {
     try {
       const response = await fetch(`${BASE_URL}/chats/${ip}`);
@@ -88,7 +130,6 @@ const ChatAssistant = () => {
       console.error("Error fetching previous chats:", error.message);
     }
   };
-
   useEffect(() => {
     if (ip !== null) {
       fetchPreviousChats();
@@ -101,12 +142,11 @@ const ChatAssistant = () => {
       ];
       setMessages(newMessage);
     }
-    
   }, [previousChats]);
-  // console.log(previousChats);
+
   return (
     <div className="chat-container">
-      <div className="chat-messages">
+      <div className="chat-messages" ref={chatMessagesRef}>
         {previousChats.length < 100 ? (
           previousChats.map((chat, index) => (
             <div key={index} className={`message ${chat.type}`}>
@@ -132,9 +172,9 @@ const ChatAssistant = () => {
           onKeyPress={handleKeyPress}
           placeholder="Type your question..."
         />
-<button disabled={isLoading} onClick={handleSendMessage}>
-  {isLoading ? <div id="loading"></div> : "Send"}
-</button>
+        <button disabled={isLoading} onClick={handleSendMessage}>
+          {isLoading ? <div id="loading"></div> : "Send"}
+        </button>
       </div>
       <button className="clear-btn" onClick={clearPast}>
         Clear
@@ -142,5 +182,6 @@ const ChatAssistant = () => {
     </div>
   );
 };
+
 export default ChatAssistant;
 
