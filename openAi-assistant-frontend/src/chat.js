@@ -40,7 +40,7 @@ const Chat = () => {
           You Have
         </h1>
         <div className="chat">
-          <h1>Rollover Helper</h1>
+          <h1>Meet RolloverHelper.AI</h1>
           <ChatAssistant />
         </div>
       </div>

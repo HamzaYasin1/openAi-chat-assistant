@@ -97,7 +97,7 @@ const ChatAssistant = () => {
   useEffect(() => {
     if (previousChats == null || previousChats == []) {
       const newMessage = [
-        { type: "assistant", content: 'Hi, My name a Borat! How can i help today?' },
+        { type: "assistant", content: 'Hi! My name is Rollover Helper. What 401k rollover questions can I help you with?' },
       ];
       setMessages(newMessage);
     }
