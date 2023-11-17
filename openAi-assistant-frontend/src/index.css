@@ -65,3 +65,9 @@ h1.headline {
 #asa {
   display: none;
 }
+.message {
+  max-width: 90% !important;
+  }
+.chat {
+  height: 80vh !important;
+  }
