@@ -1,14 +1,37 @@
 body {
   font-family: "Arial", sans-serif;
-  background-color: #f0f0f0;
+  background-color: #F8F8F8;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
 }
 
-.logo{
+.header,
+.as-seen{
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  /* width: 100%; */
+  flex-direction: row;
+}
+.logos-a{
   width: auto;
-  height: 5.5rem;
+  height: 5rem;
+}
+.as-seen{
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* gap: 20px; */
+  font-size: 20px;
+  font-weight: 500;
+  font-style: italic;
+  margin-top: 10px;
+
+}
+.as-seen img{
+  width: auto;
+  height: 3rem;
 }
 
 .app,
@@ -221,7 +244,11 @@ button {
 .how-main,
 .seen-main,
 .notice-main,
-.privacy-main{
+.privacy-main,
+.max-main,
+.max-text,
+.roll-main,
+.exp{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -229,8 +256,21 @@ button {
   padding: 20px 20px;
   /* margin-top: 1rem; */
 }
+.max-main{
+  gap: 1rem;
+  background-color: #F0F0F0;
+}
+.max-main p{
+  color: #000;
+}
+.max-text{
+  gap: 20px;
+  align-items: start;
+}
+
+
 .notice-main{
-  background-color: #343434;
+  background-color: #000;
 }
 .logo-con{
   display: flex;
@@ -262,12 +302,51 @@ button {
 }
 .notice-main>p{
   color: #d8d8d8;
+}
+.exp{
+  flex-direction: row;
+}
+.mockup{
+  max-width: 30rem;
+  height: 100%;
+}
 
+.max-main p,
+.roll-main p{
+  color: #000;
+}
+.roll-main p{
+  font-style: italic;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.text-each p{
+  max-width: 60rem;
+  text-align: start;
+  color: rgb(131, 130, 130);
+
+}
+.logos{
+  width: auto;
+  height: 5rem;
+}
+.exp span{
+  font-size: 22px;
+  letter-spacing: 1px;
+  font-weight: 500;
+  font-style: normal;
 }
 @media screen and (max-width: 1124px) {
   .logo{
-    height: 4rem;
+    height: 3rem;
   }
+  .as-seen span{
+    font-size: 12px;
+  }
+.as-seen img{
+  height: 1.5rem;
+}
   .main-text{
     font-size: 26px !important;
   }
@@ -277,10 +356,30 @@ button {
   .how-work p {
     font-size: 16px;
   }
+  .mockup{
+    max-width: 20rem;
+  }
+  .logos{
+    height: 4rem;
+  }
+  .exp span{
+    font-size: 17px;
+  }
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width:520px) {
+  .logo{
+    height: 5rem;
+  }
+  .header{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
   .main-text{
     font-size: 25px !important;
+  }
+  .exp{
+    flex-direction: column;
   }
   .admin-container {
     flex-direction: column;
@@ -292,7 +391,11 @@ button {
     width: 80vw;
   }
   .logo {
-    height: 3rem;
+    height: 4rem;
+  }
+  .exp span{
+    text-align: center;
+    font-size: 12px;
   }
   .chat-input {
     width: 100%;
@@ -300,15 +403,31 @@ button {
     flex-direction: column;
     padding: 0;
   }
+  .as-seen img{
+    height: 1rem;
+  }
   .chat-input button,
   .chat-input input{
     width: 100%;
     margin: 0;
+  }
+  .mockup{
+    max-width: 10rem;
   }
   .how-work h1 {
     font-size: 25px;
   }
   .how-work p {
     font-size: 14px;
+  }
+  .logos{
+    height: 3rem;
+  }
+  .max-main,
+  .roll-main{
+    text-align: center;
+  }
+  .main-text{
+    font-size: 12px;
   }
 }
