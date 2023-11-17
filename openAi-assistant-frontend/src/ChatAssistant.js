@@ -95,7 +95,7 @@ const ChatAssistant = () => {
     }
   }, [ip]);
   useEffect(() => {
-    if (previousChats == null || previousChats === 0) {
+    if (previousChats == null || previousChats == []) {
       const newMessage = [
         { type: "assistant", content: 'Hi! My name is Rollover Helper. What 401k rollover questions can I help you with?' },
       ];
@@ -107,7 +107,7 @@ const ChatAssistant = () => {
   return (
     <div className="chat-container">
       <div className="chat-messages">
-        {previousChats.length > 0 ? (
+        {previousChats.length < 100 ? (
           previousChats.map((chat, index) => (
             <div key={index} className={`message ${chat.type}`}>
               {chat.content}
