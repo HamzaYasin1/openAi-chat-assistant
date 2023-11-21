@@ -2,13 +2,15 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { BASE_URL } from "./config";
 
-const ChatAssistant = () => {
+const ChatAssistant = ({ parameter }) => {
+  console.log(parameter);
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState([]);
   const [isLoading, setLoading] = useState(false);
   const [previousChats, setPreviousChats] = useState([]);
   const [ip, setIpAddress] = useState(null);
   const chatMessagesRef = useRef(null);
+  const hasMounted = useRef(false);
 
   useEffect(() => {
     // Check if the chat has started by looking for a flag in localStorage
@@ -20,7 +22,7 @@ const ChatAssistant = () => {
         {
           type: "assistant",
           content:
-            'Hi! My name is Rollover Helper. What 401k rollover questions can I help you with?',
+            "Hi! My name is Rollover Helper. What 401k rollover questions can I help you with?",
         },
       ]);
 
@@ -28,7 +30,7 @@ const ChatAssistant = () => {
       localStorage.setItem("chatStarted", "true");
     }
   }, []);
-useEffect(() => {
+  useEffect(() => {
     // Function to retrieve the user's IP address
     const getIp = async () => {
       try {
@@ -38,11 +40,10 @@ useEffect(() => {
         console.error("Error fetching IP address:", error.message);
       }
     };
- // Call the function to get the IP address
     getIp();
-  }, []); // Empty dependency array to run this effect only once
+  }, []);
 
-const handleInputChange = (e) => {
+  const handleInputChange = (e) => {
     setInput(e.target.value);
   };
 
@@ -86,17 +87,17 @@ const handleInputChange = (e) => {
     })
       .then((response) => response.json())
       .then((data) => {
-     // Delay to simulate bot response time (remove this in production)
+        // Delay to simulate bot response time (remove this in production)
         setTimeout(() => {
-   // Update the last message (bot typing) with the actual bot response
-        setMessages((prevMessages) =>
-          prevMessages.map((message, index) =>
-            index === prevMessages.length - 1
-              ? { ...message, type: "assistant", content: data.response }
-              : message
-          )
-        );
-setLoading(false); // Reset isLoading to false here
+          // Update the last message (bot typing) with the actual bot response
+          setMessages((prevMessages) =>
+            prevMessages.map((message, index) =>
+              index === prevMessages.length - 1
+                ? { ...message, type: "assistant", content: data.response }
+                : message
+            )
+          );
+          setLoading(false); // Reset isLoading to false here
           // Scroll to the recent bot message
           scrollToRecentBotMessage();
         }, 1000); // Adjust the delay as needed
@@ -125,6 +126,7 @@ setLoading(false); // Reset isLoading to false here
         );
         // Set the formatted chats in the state
         setPreviousChats(formattedChats);
+        console.log(previousChats);
       }
     } catch (error) {
       console.error("Error fetching previous chats:", error.message);
@@ -135,14 +137,59 @@ setLoading(false); // Reset isLoading to false here
       fetchPreviousChats();
     }
   }, [ip]);
+
   useEffect(() => {
     if (previousChats == null || previousChats.length === 0) {
       const newMessage = [
-        { type: "assistant", content: 'Hi! My name is Rollover Helper. What 401k rollover questions can I help you with?' },
+        {
+          type: "assistant",
+          content:
+            "Hi! My name is Rollover Helper. What 401k rollover questions can I help you with?",
+        },
       ];
       setMessages(newMessage);
+      if (parameter !== null) {
+        setMessages((prevMessages) => [
+          ...prevMessages,
+          { type: "user", content: parameter },
+          { type: "assistant", content: "Rollover Helper Bot is typing..." }, // Placeholder for bot typing
+        ]);
+        setInput("");
+        setLoading(true);
+        // Make a POST request to the API (replace 'YOUR_API_ENDPOINT' with the actual endpoint)
+        fetch(`${BASE_URL}/ask-question`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ question: parameter, userIP: ip }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            // Delay to simulate bot response time (remove this in production)
+            setTimeout(() => {
+              // Update the last message (bot typing) with the actual bot response
+              setMessages((prevMessages) =>
+                prevMessages.map((message, index) =>
+                  index === prevMessages.length - 1
+                    ? { ...message, type: "assistant", content: data.response }
+                    : message
+                )
+              );
+              setLoading(false); // Reset isLoading to false here
+              // Scroll to the recent bot message
+              scrollToRecentBotMessage();
+            }, 1000); // Adjust the delay as needed
+          })
+          .catch((e) => {
+            if (e.message === "Failed to fetch")
+              alert("Network is not reachable, please check your connection");
+            else alert(e.message);
+            setLoading(false);
+          });
+      }
     }
-  }, [previousChats]);
+  }, [previousChats]); // Include parameter in the dependency array
 
   return (
     <div className="chat-container">
@@ -184,4 +231,3 @@ setLoading(false); // Reset isLoading to false here
 };
 
 export default ChatAssistant;
-

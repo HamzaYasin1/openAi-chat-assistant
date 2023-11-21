@@ -1,8 +1,22 @@
 import React from "react";
 import ChatAssistant from "./ChatAssistant";
+import { useParams, useLocation } from 'react-router-dom';
 import "./index.css";
 
+
+
+
 const Chat = () => {
+  const location = useLocation();
+
+  // Access the query string from location.search
+  const queryParams = new URLSearchParams(location.search);
+
+  // Get the value of the 'search' parameter
+  const searchValue = queryParams.get('search');
+
+  
+
   return (
     <>
       <div className="container">
@@ -41,8 +55,7 @@ const Chat = () => {
         </h1>
         <div className="chat">
           <h1></h1> 
-
-          <ChatAssistant />
+          <ChatAssistant parameter={searchValue} />
         </div>
       </div>
       <div className="how-work">
