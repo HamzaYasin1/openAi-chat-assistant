@@ -65,6 +65,7 @@ const Chat = () => {
                 fontWeight: "600",
                 margin: "0 auto",
                 maxWidth: "900px",
+                textTransform:"uppercase",
               }}
             >
             Your Question : {searchValue}
