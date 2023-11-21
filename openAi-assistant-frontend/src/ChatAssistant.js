@@ -148,7 +148,7 @@ const ChatAssistant = ({ parameter }) => {
         },
       ];
       setMessages(newMessage);
-      if (parameter !== null) {
+      if (parameter !== null && parameter !== "") {
         setMessages((prevMessages) => [
           ...prevMessages,
           { type: "user", content: parameter },

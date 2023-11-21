@@ -1,8 +1,21 @@
 import React from "react";
 import ChatAssistant from "./ChatAssistant";
+import { useLocation } from 'react-router-dom';
+
 import "./index.css";
 
 const Ask = () => {
+  const location = useLocation();
+
+  // Access the query string from location.search
+  const queryParams = new URLSearchParams(location.search);
+
+  // Get the value of the 'search' parameter
+  const searchValue = queryParams.get('search');
+
+
+  console.log(searchValue);
+
   return (
     <>
       <div className="container">
@@ -19,7 +32,7 @@ const Ask = () => {
           This A.I. Powered Bot Can Answer Any 401k/IRA/TSP Rollover Questions
           You Have
         </h1>
-        <ChatAssistant />
+        <ChatAssistant parameter={searchValue} />
       </div>
     </>
   );

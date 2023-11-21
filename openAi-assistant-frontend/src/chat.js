@@ -15,6 +15,9 @@ const Chat = () => {
   // Get the value of the 'search' parameter
   const searchValue = queryParams.get('search');
 
+
+  console.log(searchValue);
+
   
 
   return (
@@ -54,7 +57,19 @@ const Chat = () => {
           You Have
         </h1>
         <div className="chat">
-          <h1></h1> 
+        {searchValue !== null && searchValue !== "" && (
+            <h5
+              className="pt-3 text-center main-text"
+              style={{
+                fontSize: "20px",
+                fontWeight: "600",
+                margin: "0 auto",
+                maxWidth: "900px",
+              }}
+            >
+            Your Question : {searchValue}
+            </h5>
+          )}
           <ChatAssistant parameter={searchValue} />
         </div>
       </div>
