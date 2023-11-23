@@ -59,14 +59,14 @@ const Chat = () => {
         <div className="chat">
         {searchValue !== null && searchValue !== "" && (
             <h5
-              className="pt-3 text-center main-text"
-              style={{
-                fontSize: "20px",
-                fontWeight: "600",
-                margin: "0 auto",
-                maxWidth: "900px",
-                textTransform:"uppercase",
-              }}
+              className="pt-3 text-center "
+              // style={{
+              //   fontSize: "20px",
+              //   fontWeight: "600",
+              //   margin: "0 auto",
+              //   maxWidth: "900px",
+              //   textTransform:"uppercase",
+              // }}
             >
             Your Question : {searchValue}
             </h5>

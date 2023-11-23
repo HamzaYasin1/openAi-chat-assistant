@@ -342,6 +342,14 @@ button {
   font-style: normal;
   max-width: 50%;
 }
+.chat > h5{
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 auto;
+  max-width: 900px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
 @media screen and (max-width: 1124px) {
   .logo{
     height: 3rem;
@@ -386,6 +394,7 @@ button {
   }
   .main-p{
     font-size: 18px !important;
+    display: none;
   }
   .exp{
     flex-direction: column;
@@ -444,4 +453,10 @@ button {
   .notice-main p{
     font-size: 12px;
   }
+  .chat > h5{
+    font-size: 16px;
+  }
+  .chat {
+    max-height: 95vh !important;
+}
 }
