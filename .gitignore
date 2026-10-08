@@ -73,11 +73,9 @@ web_modules/
 .yarn-integrity
 
 # dotenv environment variable files
-.env
 .env.development.local
 .env.test.local
 .env.production.local
-.env.local
 .env.sample
 
 # parcel-bundler cache (https://parceljs.org/)
@@ -129,6 +127,4 @@ dist
 .yarn/install-state.gz
 .pnp.*
 .gitignore
-branch_structure.json
-temp_auto_push.bat
-temp_interactive_push.bat
+config.bat
